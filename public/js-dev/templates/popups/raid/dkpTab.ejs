@@ -1,0 +1,207 @@
+<div class="row">
+    <div class="col-sm-6">
+        <form class="form-horizontal" id="dkp">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><%- Translator.translate("raid.dkpTab.pointAssignment") %></div>
+                    <div class="panel-body">
+                        <%
+                        var glyphicon,
+                            presentButton,
+                            tooltipText,
+                            successClass;
+                        _.each(characters, function (character, id) { %>
+                        <div class="form-group">
+                            <%
+                                var characterClass = "dkp-plus",
+                                    characterName = character.name,
+                                    itemList;
+
+                            if (raid.userDkp && typeof raid.userDkp[id] === "number") {
+                                if (raid.userDkp[id] < 0) {
+                                    characterClass = "dkp-minus";
+                                } else if (raid.userDkp[id] >= 150) {
+                                    characterClass = "dkp-much-plus"
+                                }
+                            }
+                            if (character.items) {
+                                itemList = "<ul class='list-group list-group-mini characterItems'>";
+                                _.each(character.items, function (item, id) {
+                                     itemList = itemList + "<li class='list-group-item'><span class='badge'>" + item.amount + "</span>" + item.name + "</li>";
+                                });
+                                itemList = itemList + "</ul>";
+                                characterName = '<span class="characterName"' +
+                                        ' data-toggle="popover"' +
+                                        ' data-trigger="hover"' +
+                                        ' data-placement="left"' +
+                                        ' data-html="true"' +
+                                        ' data-container=".modal_raid"' +
+                                        ' data-content="' + itemList + '">' + character.name + '</span>';
+                            }
+
+                            if (UserData.isAdmin) {
+                                if (character.dkp >= 0){
+                                    glyphicon = "down";
+                                    presentButton = "was-absent";
+                                    tooltipText = Translator.translate("raid.dkpTab.setAbsent");
+                                    successClass = "warning";
+                                } else {
+                                    glyphicon = "up";
+                                    presentButton = "was-present";
+                                    tooltipText = Translator.translate("raid.dkpTab.setPresent");
+                                    successClass = "success";
+                                }
+                            %>
+                                <div class="col-sm-5 col-xs-7">
+                                    <label for="character-dkp-<%- id %>" class="<%- characterClass %>"><%= characterName %></label>
+                                </div>
+                                <div class="col-sm-5 col-xs-4">
+                                    <input type="number" class="number" value="<%- character.dkp %>" id="character-dkp-<%- id %>" name="dkp[<%- id %>]" />
+                                </div>
+
+                                <button type="button" class="btn btn-<%- successClass %> present-button <%- presentButton %>" data-id="<%- id %>"
+                                        data-toggle="tooltip" title="<%- tooltipText %>" data-placement="right">
+                                    <span class="glyphicon glyphicon-thumbs-<%- glyphicon %>"></span>
+                                </button>
+
+
+                            <% } else {
+
+                                    if (raid.success === undefined) { %>
+                                        <div class="col-sm-7 col-xs-7 <%- characterClass %>"><%= characterName %></div>
+                            <%      } else {
+                                        glyphicon = character.dkp >= 0 ? "up" : "down";
+                            %>
+                                        <div class="col-sm-7 col-xs-7"><%= characterName %></div>
+                                        <div class="col-sm-4 col-xs-4 number"><%- character.dkp %></div>
+                                        <span class="glyphicon glyphicon-thumbs-<%- glyphicon %>"></span>
+                            <%      }
+
+
+
+                                }
+                            %>
+                        </div>
+                        <% }); %>
+
+                    </div>
+                    <div class="panel-footer">
+                        <%
+                        if (UserData.isAdmin) {
+                            if (raid.success !== true) {
+                                glyphicon    = "plus";
+                                successClass = "success";
+                                tooltipText  = Translator.translate("raid.dkpTab.markSuccessful");
+                            } else {
+                                glyphicon    = "minus";
+                                successClass = "warning";
+                                tooltipText  = Translator.translate("raid.dkpTab.markUnsuccessful");
+                            }
+                        %>
+                            <button type="button" class="btn btn-<%- successClass %>" id="raidsuccess"
+                                    data-toggle="tooltip" title="<%- tooltipText %>">
+                                <span class="glyphicon glyphicon-<%- glyphicon %>"></span>
+                                Killbonus
+                            </button>
+                            <input type="hidden" name="success" id="successField" value="<%- (raid.success === true) ? 1 : 0 %>"/>
+                            <input type="hidden" name="raidId" value="<%- raid._id %>"/>
+                            <input type="submit" class="btn btn-primary pull-right" id="givedkpButton" value="<%- Translator.translate("raid.dkpTab.assign") %>"/>
+                            <div class="clearfix"></div>
+                        <% } else {
+
+
+
+                            if (raid.success === true) {
+                        %>
+                            <div class="alert alert-success"><%- Translator.translate("raid.dkpTab.successful") %></div>
+                        <%  } else if (raid.success === false) { %>
+                            <div class="alert alert-danger"><%- Translator.translate("raid.dkpTab.unsuccessful") %>!</div>
+                        <%  } else { %>
+                            <div class="alert alert-info"><%- Translator.translate("raid.dkpTab.dkpNotAssigned") %></div>
+                        <%  }
+
+
+
+                        } %>
+                    </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><%- Translator.translate("raid.dkpTab.givenItems") %></div>
+            <div class="panel-body">
+                <% if (!raid.itemsGiven || _.size(raid.itemsGiven) === 0) { %>
+                    Keine Items vergeben
+                <% } else { %>
+                    <ul class="list-unstyled">
+                        <% _.each(raid.itemsGiven, function (givenItem) { %>
+                            <li class="row">
+                                <div class="col-xs-8"><%- givenItem.item.name %></div>
+                                <div class="col-xs-4">
+                                    <span class="badge pull-right">
+                                        <%- givenItem.user.dkp === 0 ? "-" : "" %><%- givenItem.user.dkp %>
+                                        <% if (givenItem.item.wasNeed) { %>
+                                            <span class="glyphicon glyphicon-fire" data-toggle="tooltip" data-placement="right" title="<%- Translator.translate("raid.dkpTab.needed") %>"></span>
+                                        <% } %>
+                                    </span>
+                                </div>
+                                <div class="col-xs-8">&rarr; <%- givenItem.user.name %></div>
+                                <% if (UserData.isAdmin) { %>
+                                    <div class="col-xs-4">
+                                        <a href="javascript:void(0);" class="removeItem pull-right" data-id="<%- givenItem.id %>">
+                                            <span class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="right" title="<%- Translator.translate("raid.dkpTab.removeItem") %>"></span>
+                                        </a>
+                                    </div>
+                                <% } %>
+                            </li>
+                        <% }); %>
+                    </ul>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <% if (UserData.isAdmin && _.size(raid.items) > 0) { %>
+        <div class="col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><%- Translator.translate("raid.dkpTab.giveItems") %></div>
+                <div class="panel-body">
+                    <form id="giveItem">
+                        <input type="hidden" name="raidId" value="<%- raid._id %>" />
+                        <div class="form-group">
+                            <div class="col-sm-4">
+                                <select name="userId" data-live-search="<%- _.size(raid.items) > 10 ? 'true' : 'false' %>"  data-width="100%">
+                                    <% _.each(characters, function (character, id) { %>
+                                        <option value="<%- id %>"><%- character.name %></option>
+                                    <% });%>
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+                                <select name="itemId" id="itemId" data-live-search="<%- _.size(raid.items) > 10 ? 'true' : 'false' %>" data-width="100%">
+                                    <% _.each(raid.items, function (item, id) { %>
+                                    <option value="<%-id %>"><%- item.name %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>
+                                    <input type="checkbox" name="need" id="itemNeeded" value="1"> <%- Translator.translate("raid.dkpTab.needed") %>
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label>
+                                    <%- Translator.translate("raid.dkpTab.costs") %> <input type="number" id="itemDkp" min="0" name="dkp" value="<%- -raid.items[_.keys(raid.items)[0]].dkp.greed %>" class="number"/>
+                                </label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="submit" class="btn btn-primary pull-right" id="giveItemButton" value="<%- Translator.translate("raid.dkpTab.giveItem") %>"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>

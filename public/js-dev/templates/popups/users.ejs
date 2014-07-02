@@ -1,0 +1,21 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <h4 class="modal-title"><%- Translator.translate("users.users") %></h4>
+        </div>
+        <div class="modal-body">
+            <ul class="nav nav-tabs">
+                <li class="active notBannedTab"><a href="#notBannedTab" data-toggle="tab"><%- Translator.translate("users.notBanned") %></a></li>
+                <li class="bannedTab"><a href="#bannedTab" data-toggle="tab"><%- Translator.translate("users.banned") %></a></li>
+                <li class="allTab"><a href="#allTab" data-toggle="tab"><%- Translator.translate("users.all") %></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="notBannedTab"></div>
+                <div class="tab-pane" id="bannedTab"></div>
+                <div class="tab-pane" id="allTab"></div>
+            </div>
+        </div>
+    </div>
+</div>

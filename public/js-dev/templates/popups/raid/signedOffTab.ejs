@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <button class="signOff btn btn-danger pull-right"><%- Translator.translate("raid.signedOffTab.signOff") %></button>
+                <div class="text"><%- Translator.translate("raid.signedOffTab.signedOffUsers") %></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <% if (_.size(signedOff) === 0) { %>
+                    <%- Translator.translate("raid.signedOffTab.noSignOffsYet") %>
+                <% } else { %>
+                    <table class="table">
+                        <thead>
+                            <th><%- Translator.translate("raid.signedOffTab.user") %></th>
+                            <th><%- Translator.translate("raid.signedOffTab.date") %></th>
+                            <th><%- Translator.translate("raid.signedOffTab.role") %></th>
+                            <th class="text-center"><%- Translator.translate("raid.signedOffTab.wasAffirmed") %></th>
+                        </thead>
+                        <tbody>
+                            <% _.each(signedOff, function (users, roleId) {
+                                    _.each(users, function (user, userId) {
+                            %>
+                                        <tr>
+                                            <td>
+                                                <a href="#members/<%- userId %>" class="member"><%- user.name %></a>
+                                            </td>
+                                            <td><%- moment(user.date).format("L LT") %></td>
+                                            <td>
+                                                <% if (Roles[roleId]) { %>
+                                                    <%- Roles[roleId] %>
+                                                <% } else { %>
+                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                <% } %>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="glyphicon glyphicon-<%- user.wasAffirmed ? "ok" : "remove" %>"></span>
+                                            </td>
+                                        </tr>
+                            <%
+                                    });
+                            });%>
+                        </tbody>
+                    </table>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>

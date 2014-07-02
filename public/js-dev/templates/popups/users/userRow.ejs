@@ -1,0 +1,37 @@
+<tr class="text-left userRow" data-user-id="<%- user._id %>">
+    <td>
+        <a href="javascript:void(0);" class="editable"
+           data-type="text" title="<%- Translator.translate("users.userRow.setNewLogin") %>" data-name="login" data-pk="<%- user._id %>"
+                ><%- user.login %></a>
+    </td>
+    <td>
+        <ul class="list-group list-group-mini">
+        <% _.each(user.characters, function (character, id) { %>
+            <li class="list-group-item"><a href="javascript:void(0);" class="editable"
+                data-pk="<%- user._id %>-<%- id %>" data-type="text" data-name="charname" title="<%- Translator.translate("users.userRow.setNewCharname") %>"
+                ><%- character.name %></a></li>
+        <% });%>
+        </ul>
+    </td>
+    <td>
+        <a href="javascript:void(0);" class="editable"
+            data-type="text" title="<%- Translator.translate("users.userRow.setNewEmail") %>" data-name="email" data-pk="<%- user._id %>"
+        ><%- user.email %></a>
+    </td>
+    <td>
+        <% if (user._id == UserData.id) { %>
+            <%= user.isAdmin ? '&#x2713;' : '&#x2717;' %>
+        <% } else {%>
+            <a href="javascript:void(0);" class="editable"
+               data-type="select" data-name="isadmin" data-pk="<%- user._id %>" data-value="<%- user.isAdmin ? 1 : 0 %>" data-source="[{value: 1, text: '&#x2713;'}, {value: 0, text: '&#x2717;'}]"></a>
+        <% } %>
+    </td>
+    <td>
+        <% if (user._id == UserData.id) { %>
+            <%= user.isBanned ? '&#x2713;' : '&#x2717;' %>
+        <% } else {%>
+            <a href="javascript:void(0);" class="editable"
+               data-type="select" data-name="isbanned" data-pk="<%- user._id %>" data-value="<%- user.isBanned ? 1 : 0 %>" data-source="[{value: 1, text: '&#x2713;'}, {value: 0, text: '&#x2717;'}]"></a>
+        <% } %>
+    </td>
+</tr>

@@ -1,0 +1,52 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <% if (UserData.isAdmin) { %>
+                <div class="pull-right cornerbutton">
+                    <button class="btn btn-default editRaid"><%- Translator.translate("raid.edit") %></button>
+                </div>
+            <% } %>
+            <h4 class="modal-title"><%- raid.name %> <small><%- moment(raid.date).format("L LT") %></small></h4>
+        </div>
+        <div class="modal-body">
+
+            <% if (takesSignups) { %>
+                <ul class="nav nav-tabs dkpTabs">
+                    <li class="active"><a href="#default" class="tab-default" data-toggle="tab"><%- Translator.translate("raid.signUps") %></a></li>
+                    <li><a href="#signedOffTab" class="tab-signedOff tab-load" data-toggle="tab"><%- Translator.translate("raid.signOffs") %></a></li>
+                    <li><a href="#commentsTab" class="tab-commentsTab tab-load" data-toggle="tab"><%- Translator.translate("raid.comments") %> <span id="badge" class="pull-right"></span></a></li>
+                    <li><a href="#dkpTab" class="tab-dkp tab-load" data-toggle="tab"><%- Translator.translate("raid.dkp") %></a></li>
+                    <li><a href="#itemTab" class="tab-items tab-load" data-toggle="tab"><%- Translator.translate("raid.items") %></a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="default">
+                        <div class="panel panel-info signedUp">
+                            <div class="panel-heading"><%- Translator.translate("raid.signedUp") %><span class="amount badge pull-right"><%- signupAmount %>/<%- signupsNeeded %></span></div>
+                            <div class="panel-body">
+                                <ul class="nav nav-pills" id="signedUpList"></ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success affirmed">
+                            <div class="panel-heading"><%- Translator.translate("raid.affirmed") %><span class="amount badge pull-right"><%- affirmedAmount %>/<%- signupsNeeded %></span></div>
+                            <div class="panel-body">
+                                <ul class="nav nav-pills" id="affirmedList"></ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="signedOffTab"></div>
+                    <div class="tab-pane" id="commentsTab"></div>
+                    <div class="tab-pane" id="dkpTab"></div>
+                    <div class="tab-pane" id="itemTab"></div>
+                </div>
+            <% } else { %>
+                <div class="well well-lg">
+                    <h4><%- Translator.translate("raid.noSignupsPossible") %></h4>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>

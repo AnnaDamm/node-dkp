@@ -1,0 +1,68 @@
+<input type="hidden" name="class" id="raidclass" value="<%= raid.class %>"/>
+<div class="row">
+    <div class="col-xs-6">
+        <div class="input-group form-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
+            <input type="text" id="raidname" name="name" class="form-control required" placeholder="<%- Translator.translate("editRaid.settingsForm.raidName") %>" data-pattern=".{3,}" value="<%- raid.name %>"
+                   data-toggle="popover" data-content="<%- Translator.translate("editRaid.settingsForm.raidName") %>" data-trigger="focus" data-container=".dkp_modal"/>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="input-group form-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span></span>
+            <div class="btn-group raidclass">
+                <ul class="dropdown-menu" role="menu">
+                    <li class="event-important"><a href="javascript:void(0);" data-raid-class="important">&nbsp;</a></li>
+                    <li class="event-info"><a href="javscript:void(0);" data-raid-class="info">&nbsp;</a></li>
+                    <li class="event-warning"><a href="javscript:void(0);" data-raid-class="warning">&nbsp;</a></li>
+                    <li class="event-inverse"><a href="javscript:void(0);" data-raid-class="inverse">&nbsp;</a></li>
+                    <li class="event-success"><a href="javscript:void(0);" data-raid-class="success">&nbsp;</a></li>
+                    <li class="event-special"><a href="javscript:void(0);" data-raid-class="special">&nbsp;</a></li>
+                    <li class="event-undefined"><a href="javscript:void(0);" data-raid-class="undefined">&nbsp;</a></li>
+                </ul>
+                <button type="button" class="btn event-<%= raid.class %> dropdown-toggle" data-toggle="dropdown">
+                    <span class="name"><%- Translator.translate("editRaid.settingsForm.color") %></span> <span class="caret"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-6">
+        <div class="panel panel-info">
+            <div class="panel-heading"><%- Translator.translate("editRaid.settingsForm.points") %></div>
+            <div class="panel-body">
+                <div class="input-group form-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-thumbs-up"></span></span>
+                    <input type="number" id="raidpresent" name="present" class="form-control required" placeholder="<%- Translator.translate("editRaid.settingsForm.pointsWhenThere") %>" min="0" value="<%- raid.dkp.present !== '' ? raid.dkp.present : '' %>"
+                           data-toggle="popover" data-content="<%- Translator.translate("editRaid.settingsForm.pointsWhenThere.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+                </div>
+                <div class="input-group form-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-thumbs-down"></span></span>
+                    <input type="number" id="raidabsent" name="absent" class="form-control required" placeholder="<%- Translator.translate("editRaid.settingsForm.pointsWhenNotThere") %>" min="0" value="<%- raid.dkp.absent !== '' ? -raid.dkp.absent : '' %>"
+                           data-toggle="popover" data-content="<%- Translator.translate("editRaid.settingsForm.pointsWhenNotThere.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+                </div>
+                <div class="input-group form-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-flash"></span></span>
+                    <input type="number" id="raidkillbonus" name="killbonus" class="form-control required" placeholder="<%- Translator.translate("editRaid.settingsForm.killbonus") %>" min="0" value="<%- raid.dkp.killbonus !== '' ? raid.dkp.killbonus : '' %>"
+                           data-toggle="popover" data-content="<%- Translator.translate("editRaid.settingsForm.killbonus.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="panel panel-info roleDistribution">
+            <div class="panel-heading"><%- Translator.translate("editRaid.settingsForm.classDistribution") %></div>
+            <div class="panel-body">
+                <% _.each(roles, function (role, id) { %>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon"><%- role %></span></span>
+                        <input type="number" id="raidrole-<%- role %>" name="roles[<%-id%>]" class="form-control required" placeholder="Anzahl - <%-role%>" min="0" value="<%- raid.roles[id] ? raid.roles[id] : '' %>"
+                               data-toggle="popover" data-content="<%- Translator.translate("editRaid.settingsForm.classDistribution.description", role) %>" data-trigger="focus" data-container=".dkp_modal"/>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<li class="comment row">
+    <div class="col-xs-8 user-name"><a href="#members/<%- comment.user.id %>" class="member"><%- comment.user.name %></a></div>
+    <div class="col-xs-4 comment-date"><%- moment(comment.date).format("L LT") %></div>
+    <div class="col-xs-12 comment-text">
+        <%- comment.text %>
+    </div>
+</li>

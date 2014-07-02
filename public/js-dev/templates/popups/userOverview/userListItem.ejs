@@ -1,0 +1,15 @@
+<div class="list-group-item col-xs-6 col-sm-4 col-md-3 userDetails" data-id="<%- user._id%>">
+    <div class="col-xs-9 name">
+        <%- user.characters[0].name %>
+    </div>
+    <% var colorClass = "minus";
+        if (user.dkp >= 150) {
+            colorClass = "much-plus"
+        } else if (user.dkp >= 0) {
+            colorClass = "plus";
+        }
+    %>
+    <div class="col-xs-3 dkp dkp-<%- colorClass %>">
+        <%- user.dkp %>
+    </div>
+</div>

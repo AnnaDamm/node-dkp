@@ -1,0 +1,107 @@
+/*
+Syntax error: Undefined variable: "$imgDir".
+        on line 59 of ./bootstrap/bootstrap-editable.scss
+
+54:    height: 24px; 
+55:    width: 30px;
+56: }
+57: 
+58: .editableform-loading {
+59:     background: url($imgDir + 'loading.gif') center center no-repeat;
+60:     height: 25px;
+61:     width: auto; 
+62:     min-width: 25px; 
+63: }
+64: 
+
+Backtrace:
+./bootstrap/bootstrap-editable.scss:59
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/variable.rb:49:in `_perform'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/node.rb:50:in `perform'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/operation.rb:64:in `_perform'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/node.rb:50:in `perform'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/funcall.rb:170:in `perform_arg'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/funcall.rb:124:in `_perform'
+/opt/vagrant_ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `map'
+/opt/vagrant_ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `each'
+/opt/vagrant_ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `enum_with_index'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/funcall.rb:123:in `each'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/funcall.rb:123:in `enum_with_index'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/funcall.rb:123:in `each'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/funcall.rb:123:in `map'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/funcall.rb:123:in `_perform'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/node.rb:50:in `perform'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/list_literal.rb:62:in `_perform'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/list_literal.rb:62:in `map'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/list_literal.rb:62:in `_perform'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/script/tree/node.rb:50:in `perform'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:366:in `visit_prop'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:36:in `send'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:36:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:152:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/stack.rb:79:in `with_base'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/stack.rb:121:in `with_frame'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/stack.rb:79:in `with_base'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:152:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:389:in `visit_rule'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:389:in `map'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:389:in `visit_rule'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:387:in `visit_rule'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:36:in `send'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:36:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:152:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/stack.rb:79:in `with_base'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/stack.rb:121:in `with_frame'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/stack.rb:79:in `with_base'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:152:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:52:in `map'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:161:in `visit_children'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:36:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:36:in `send'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/base.rb:36:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:151:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:8:in `send'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/visitors/perform.rb:8:in `visit'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/root_node.rb:36:in `css_tree'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/tree/root_node.rb:20:in `render'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/engine.rb:274:in `render'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin/compiler.rb:378:in `update_stylesheet'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin/compiler.rb:189:in `update_stylesheets'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin/compiler.rb:186:in `each'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin/compiler.rb:357:in `on_file_changed'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin/compiler.rb:250:in `watch'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/listener.rb:252:in `call'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/listener.rb:290:in `initialize_adapter'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/adapter.rb:299:in `start_poller'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/adapter.rb:299:in `initialize'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/adapter.rb:299:in `new'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/adapter.rb:299:in `start_poller'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/adapter.rb:101:in `start'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/adapter.rb:109:in `start!'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/vendor/listen/lib/listen/listener.rb:66:in `start!'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin/compiler.rb:293:in `listen_to'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin/compiler.rb:259:in `watch'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin.rb:108:in `send'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/plugin.rb:108:in `method_missing'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/exec.rb:509:in `watch_or_update'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/exec.rb:346:in `process_result'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/exec.rb:43:in `parse'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/../lib/sass/exec.rb:22:in `parse!'
+/opt/vagrant_ruby/lib/ruby/gems/1.8/gems/sass-3.3.9/bin/sass:13
+/opt/vagrant_ruby/bin/sass:19:in `load'
+/opt/vagrant_ruby/bin/sass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$imgDir\".\A         on line 59 of ./bootstrap/bootstrap-editable.scss\A \A 54:    height: 24px; \A 55:    width: 30px;\A 56: }\A 57: \A 58: .editableform-loading {\A 59:     background: url($imgDir + 'loading.gif') center center no-repeat;\A 60:     height: 25px;\A 61:     width: auto; \A 62:     min-width: 25px; \A 63: }\A 64: "; }

@@ -1,0 +1,11 @@
+<% if (UserData.isAdmin) { %>
+    <li class="character">
+        <form class="addAffirmedCharacter" data-role-id="<%- roleId %>">
+            <input type="text" name="charName" class="charName"
+                   placeholder="<%- Translator.translate("raid.addAffirmedListItemCharacter.placeholder") %>"
+                   data-content="<%- Translator.translate("raid.addAffirmedListItemCharacter.description") %>"
+                   data-provide="typeahead"
+                   data-toggle="popover" data-placement="right" data-trigger="focus" data-container=".dkp_modal"/>
+        </form>
+    </li>
+<% } %>

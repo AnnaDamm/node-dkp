@@ -1,0 +1,201 @@
+$imgDir: "../img/";
+
+
+@import "bootstrap/includes";
+@import "calendar";
+@import "calendar-tweaks";
+
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img.center {
+  display: block;
+}
+
+.row {
+  text-align: left;
+}
+.calendar-buttons {
+  text-align: right;
+}
+
+.number {
+  text-align: right;
+}
+
+.modal_raid {
+  .nav>li {
+    >a, .addAffirmedCharacter input {
+      width: 130px;
+    }
+    .multiple-signups {
+      font-style: italic;
+    }
+  }
+  .nav-tabs>li>a {
+    width: 165px;
+  }
+  #dkp {
+    input.number {
+      width: 100%;
+    }
+  }
+  #giveItem {
+    input.number {
+      width: 100px
+    }
+  }
+  #signedOffTab {
+    .panel-heading>.text {
+      margin-top: 10px;
+    }
+  }
+
+  .modal-header small {
+    white-space: nowrap;
+  }
+
+  .present-button {
+    width: 26px;
+    height: 26px;
+    padding-top: 4px;
+    padding-left: 5px;
+  }
+  .tooltip-inner {
+    white-space: nowrap;
+  }
+
+  .character {
+    margin-top: 1px;
+
+    a {
+      padding-left: 5px;
+      padding-right: 5px;
+
+      .glyphicon {
+        top: 4px;
+      }
+    }
+  }
+  a.removeItem {
+    color: $colorRed;
+
+    &:hover, &:focus {
+      color: $colorLightRed;
+    }
+  }
+
+  .nav>li>a:not(.no-hover):hover, .nav>li>a:not(.no-hover):focus {
+    background-color: #435242;
+  }
+
+  .nav>li>a.no-hover.alert-success:hover, .nav>li>a.no-hover.alert-success:focus {
+    @extend .alert-success
+  }
+  .nav>li>a.no-hover.alert-info:hover, .nav>li>a.no-hover.alert-info:focus {
+    @extend .alert-info
+  }
+
+  .panel-footer {
+    .alert {
+      margin-bottom: 0px;
+    }
+  }
+
+  .characterItems {
+    .list-group-item {
+      min-width: 200px;
+    }
+  }
+}
+
+.modal_userOverview {
+  .userDetails {
+    cursor: pointer;
+
+    &.active {
+      color: $colorGreen;
+      background-color: $darkBackground;
+    }
+  }
+  .userDetailTable {
+    .table {
+      margin-bottom: 0;
+      font-size: 0.8em
+    }
+  }
+}
+
+.dropdown-menu {
+  li {
+    text-align: left;
+  }
+}
+
+.dkp-plus {
+  //color: $colorBlue;
+}
+.dkp-much-plus {
+  //color: $colorGreen;
+  color: $colorBlue;
+}
+.dkp-minus {
+  color: $colorRed;
+}
+
+.list-group-item {
+  .row {
+    margin-top: 0;
+  }
+}
+
+.list-group-mini {
+  margin-bottom: 0;
+
+  .list-group-item {
+    padding:3px 5px;
+    border: none;
+    font-size: 0.8em;
+  }
+}
+#dkp {
+  label, .characterName {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.row {
+  margin-top: 10px;
+}
+
+.fade {
+  -webkit-transition: opacity .1s linear;
+  transition: opacity .1s linear;
+}
+
+.cornerbutton {
+  margin-right: 20px;
+  margin-top: -5px;
+}
+
+.roleDistribution {
+  .input-group-addon {
+    min-width: 70px;
+  }
+  .form-group {
+    width: 100%;
+  }
+}
+
+.modal {
+  overflow-y: auto;
+}
+
+.btn.glyphicon-move {
+  cursor: move;
+}

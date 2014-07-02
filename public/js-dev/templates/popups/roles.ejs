@@ -1,0 +1,25 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form id="roleform" role="form">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><%- Translator.translate("roles.roles") %></h4>
+            </div>
+            <div class="modal-body">
+                <ul id="roleList" class="list-unstyled list-group-mini"></ul>
+                <ul class="list-unstyled list-group-mini">
+                    <li class="list-group-item">
+                        <button class="btn btn-success addRole pull-right" type="button">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" value="<%- Translator.translate("roles.submit") %>" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>

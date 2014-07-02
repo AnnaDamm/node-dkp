@@ -1,0 +1,14 @@
+<li class="list-group-item">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-btn"><span class="btn glyphicon glyphicon-move"></span></span>
+            <input type="text" name="roles[<%- id %>][name]" value="<%- name %>" class="form-control" data-id="<%- id %>"/>
+            <input type="hidden" name="roles[<%- id %>][rank]" value="<%- rank %>" class="roleRank"/>
+            <span class="input-group-btn">
+                <button class="btn btn-danger removeRole" type="button" data-id="<%- id %>">
+                    <span class="glyphicon glyphicon-minus"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,28 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <h4 class="modal-title"><%- Translator.translate("userOverview.members") %></h4>
+        </div>
+        <div class="modal-body">
+            <ul class="nav nav-tabs">
+                <li class="active all-users"><a href="#allUsers" data-toggle="tab"><%- Translator.translate("userOverview.all") %></a></li>
+                <li class="dkp-plus"><a href="#dkp-plus" data-toggle="tab"><%- Translator.translate("userOverview.dkpPlus") %></a></li>
+                <li class="dkp-minus"><a href="#dkp-minus" data-toggle="tab"><%- Translator.translate("userOverview.dkpMinus") %></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="allUsers">
+                    <div id="allUsersList"></div>
+                </div>
+                <div class="tab-pane" id="dkp-plus">
+                    <div id="dkpPlusList"></div>
+                </div>
+                <div class="tab-pane" id="dkp-minus">
+                    <div id="dkpMinusList"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

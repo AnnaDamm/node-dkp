@@ -1,0 +1,33 @@
+<div class="btn-group">
+    <% if (!user.isAdmin) { %>
+    <div class="btn-group">
+    <% } %>
+        <button type="button" class="btn btn-default btn-dkp">
+            <span class="user-dkp"><%- user.dkp %></span> <%- Translator.translate("menu.dkp") %>
+        </button>
+
+        <% if (user.isAdmin) { %>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-add-raid">
+                    <%- Translator.translate("menu.newEvent") %>
+                </button>
+        <% } %>
+
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only"><%- Translator.translate("menu.toggleDropdown") %></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="javascript:void(0);" class="btn-settings"><%- Translator.translate("menu.userSettings") %></a></li>
+            <% if (user.isAdmin) { %>
+                <li role="presentation" class="divider"></li>
+                <li><a href="javascript:void(0);" class="btn-users"><%- Translator.translate("menu.users") %></a></li>
+                <li><a href="javascript:void(0);" class="btn-roles"><%- Translator.translate("menu.roles") %></a></li>
+                <li><a href="javascript:void(0);" class="btn-items"><%- Translator.translate("menu.items") %></a></li>
+                <li><a href="javascript:void(0);" class="btn-raid-settings"><%- Translator.translate("menu.eventSettings") %></a></li>
+            <% } %>
+            <li role="presentation" class="divider"></li>
+            <li><a href="javascript:void(0);" class="btn-logout"><%- Translator.translate("menu.logout") %></a></li>
+        </ul>
+    </div>
+</div>

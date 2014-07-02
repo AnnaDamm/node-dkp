@@ -1,0 +1,70 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><%- Translator.translate("editRaid.raid") %></h4>
+        </div>
+        <div class="modal-body">
+            <form id="raidform" role="form">
+                <input type="hidden" name="_id" value="<%- raid._id ? raid._id : '' %>" id="raidid"/>
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#default" class="tab-default" data-toggle="tab"><%- Translator.translate("editRaid.raid") %></a></li>
+                    <li><a href="#settings" class="tab-settings" data-toggle="tab"><%- Translator.translate("editRaid.settings") %></a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="default">
+                        <div class="form-horizontal">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading"><%- Translator.translate("editRaid.data") %></div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label for="raidtype" class="col-sm-2 col-md-3 control-label"><%- Translator.translate("editRaid.raidType") %></label>
+                                        <div class="col-sm-8">
+                                            <select name="type" id="raidtype" class="form-control" data-live-search="<%- _.size(raidSettings) > 5 ? 'true' : 'false' %>">
+                                                <% _.each(raidSettings, function (raidSetting) {
+                                                    var selected = "";
+                                                    if (!raid.type && raidSetting.isDefault || raidSetting._id === raid.type) {
+                                                        selected = "selected";
+                                                    }
+                                                %>
+                                                <option value="<%- raidSetting._id %>" <%- selected %>><%- raidSetting.name %></option>
+                                                <% }); %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="raiddate" class="col-sm-2 col-md-3 control-label"><%- Translator.translate("editRaid.date") %></label>
+                                        <div class="col-sm-4">
+                                            <input data-date-format="L HH:mm" class="form-control" type="text" id="raiddate" placeholder="<%- Translator.translate("editRaid.startDate") %>" data-hidden-field="hiddendate"/>
+                                            <input type="hidden" name="date" id="hiddendate" value="<%- Math.floor(raid.dateObject.getTime() / 1000) %>"/>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input data-date-format="L HH:mm" class="form-control" type="text" id="raidenddate" placeholder="<%- Translator.translate("editRaid.endDate") %>" data-hidden-field="hiddenenddate"/>
+                                            <input type="hidden" name="enddate" id="hiddenenddate" value="<%- Math.floor(raid.endDateObject.getTime() / 1000) %>"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane" id="settings"></div>
+                </div>
+
+                <div class="pull-right">
+                    <input type="submit" class="btn btn-primary" id="submititem" value="<%- Translator.translate("editRaid.save") %>"/>
+                </div>
+
+                <% if (raid._id) { %>
+                <button type="button" class="btn btn-danger" id="deleteraid" value="<%- Translator.translate("editRaid.delete") %>" data-id="<%- raid._id %>">
+                    <span class="glyphicon glyphicon-remove"></span> <%- Translator.translate("editRaid.delete") %>
+                </button>
+                <% } %>
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

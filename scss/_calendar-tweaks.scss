@@ -1,0 +1,27 @@
+.calendar-nav .today {
+  color: #0ce3ac;
+}
+
+.plannedEvents, .pastEvents {
+  a {
+    color: #ffffff;
+  }
+  .signedUp {
+    color: $colorBlue;
+  }
+  .tooltip {
+    width: 200px;
+  }
+  h5, .affirmed, .current {
+    color: $colorGreen;
+  }
+  .name {
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 990px) {
+  #calendar {
+    min-height: 500px;
+  }
+}

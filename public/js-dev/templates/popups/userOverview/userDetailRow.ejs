@@ -1,0 +1,7 @@
+<tr class="<%- row.item ? "info" : "" %>">
+    <td><%- moment(row.date).format("L LT") %></td>
+    <td><a href="#raid/<%- row.raid.id %>/dkp" class="raidLink"><%- row.raid.name %></a></td>
+    <td><%- row.item ? row.item.name : "" %></td>
+    <td class="text-right"><%- row.change > 0 ? "+" : "" %><%- row.change %></td>
+    <td class="text-right"><%- row.newDkp %></td>
+</tr>

@@ -1,0 +1,31 @@
+<form id="itemform" role="form">
+    <input type="hidden" name="_id" value="<%- item._id %>"/>
+    <div class="panel panel-default">
+        <div class="panel-heading"><%- Translator.translate("items.form.data") %></div>
+        <div class="panel-body">
+            <div class="input-group form-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
+                <input type="text" id="itemname" name="name" class="form-control required" placeholder="<%- Translator.translate("items.form.name") %>" data-pattern=".{3,}" value="<%- item.name %>"
+                        data-toggle="popover" data-content="<%- Translator.translate("items.form.name.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+            </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-fire"></span></span>
+                <input type="number" id="itemneedcosts" name="needcosts" class="form-control required" placeholder="<%- Translator.translate("items.form.needCosts") %>" min="0" value="<%- item.dkp.need !== '' ? -item.dkp.need : '' %>"
+                       data-toggle="popover" data-content="<%- Translator.translate("items.form.needCosts.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+            </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-leaf"></span></span>
+                <input type="number" id="itemgreedcosts" name="greedcosts" class="form-control required" placeholder="<%- Translator.translate("items.form.greedCosts") %>" min="0" value="<%- item.dkp.greed !== '' ? -item.dkp.greed : '' %>"
+                       data-toggle="popover" data-content="<%- Translator.translate("items.form.greedCosts.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+            </div>
+        </div>
+    </div>
+    <div class="pull-right">
+        <input type="submit" class="btn btn-primary" id="submititem" value="<%- Translator.translate("items.form.save") %>"/>
+    </div>
+    <% if (item._id) { %>
+        <button type="button" class="btn btn-danger" id="deleteitem" value="<%- Translator.translate("items.form.delete") %>" data-id="<%- item._id %>">
+            <span class="glyphicon glyphicon-remove"></span> <%- Translator.translate("items.form.delete") %>
+        </button>
+    <% } %>
+</form>

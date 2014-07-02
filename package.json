@@ -1,0 +1,32 @@
+{
+    "name": "node-dkp",
+    "version": "0.1.0",
+    "author": "Anna Damm",
+    "repository": "https://github.com/Arany/node-dkp",
+    "dependencies": {
+        "express": "*",
+        "ejs": "*",
+        "mongojs": "*",
+        "async": "*",
+        "mongojs": "*",
+        "node-uuid": "*",
+        "connect-redis": "*",
+
+        "nodemailer": "*",
+        "email-templates": "*",
+
+        "simple-recaptcha": "*",
+        "read": "*",
+
+        "body-parser": "*",
+        "compression": "*",
+        "express-session": "*",
+        "cookie-parser": "*",
+        "csurf": "*",
+
+        "chokidar": "*"
+    },
+    "devDependencies": {
+        "requirejs": "*"
+    }
+}

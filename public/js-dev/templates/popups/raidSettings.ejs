@@ -1,0 +1,23 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <div class="pull-right cornerbutton">
+                <select class="raidSettings" data-width="auto" data-live-search="<%- _.size(raidSettings) > 5 ? 'true' : 'false' %>">
+                    <option value=""><%- Translator.translate("raidSettings.addNew") %></option>
+                    <% if (_.size(raidSettings) > 0) { %>
+                        <option data-divider="true"></option>
+                    <% } %>
+                    <% _.each(raidSettings, function (raidSetting) { %>
+                    <option class="raidSetting" value="<%- raidSetting._id %>"><%- raidSetting.name %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <h4 class="modal-title"><%- Translator.translate("raidSettings.settings") %></h4>
+        </div>
+        <div class="modal-body">
+            <div id="itemdata"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

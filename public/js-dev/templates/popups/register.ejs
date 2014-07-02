@@ -1,0 +1,55 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form id="register" action="login" method="POST" role="form">
+            <input type="hidden" name="_csrf" value="<%- CSRFToken %>"/>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><%- Translator.translate("register.register") %></h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><%- Translator.translate("register.loginData") %></div>
+                    <div class="panel-body">
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input type="text" id="registerlogin" name="login" class="form-control required" placeholder="<%- Translator.translate("register.loginName") %>" data-pattern=".{6,}"
+                                   data-toggle="popover" data-content="<%- Translator.translate("register.loginName.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+                        </div>
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            <input type="password" id="registerpassword" name="password" class="form-control required" placeholder="<%- Translator.translate("register.password") %>Passwort" data-pattern=".{6,}"
+                                   data-toggle="popover" data-content="<%- Translator.translate("register.password.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+                        </div>
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            <input type="password" id="registerpassword2" name="password2" class="form-control required" placeholder="<%- Translator.translate("register.passwordRepeat") %>" data-pattern=".{6,}"
+                                   data-toggle="popover" data-content="<%- Translator.translate("register.passwordRepeat.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+                        </div>
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                            <input type="email" id="registeremail" name="email" class="form-control required" placeholder="<%- Translator.translate("register.email") %>"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"><%- Translator.translate("register.character") %></div>
+                    <div class="panel-body">
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
+                            <input type="text" id="registercharname" name="charname" class="form-control required" placeholder="<%- Translator.translate("register.characterName") %>" data-pattern=".{3,}"
+                                   data-toggle="popover" data-content="<%- Translator.translate("register.characterName.description") %>" data-trigger="focus" data-container=".dkp_modal"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default" id="recaptchaPanel">
+                    <div class="panel-body" id="recaptchaDiv"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary btn-lg btn-block" id="registersubmit" value="<%- Translator.translate("register.submit") %>"/>
+            </div>
+        </form>
+    </div>
+</div>

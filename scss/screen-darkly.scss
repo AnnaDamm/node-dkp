@@ -1,0 +1,60 @@
+$colorGreen: #0ce3ac;
+$colorBlue: #3498db;
+$colorLightBlue: #1e90ff;
+$colorRed: #ad2121;
+$colorLightRed: #ff0c0e;
+$darkBackground: #222222;
+
+@import "bootstrap/bootstrap-darkly";
+@import "screen_normal";
+
+
+.btn-warning {
+  background-color: #DB972B;
+  border-color: #DB972B;
+}
+
+.bootstrap-datetimepicker-widget {
+  background-color: #303030;
+  border-color: #303030;
+}
+
+
+
+// calendar tweaks
+.cal-day-weekend span[data-cal-date] {
+  color: #358EEB;
+}
+
+.cal-day-holiday span[data-cal-date] {
+  color: #EC3434;
+}
+
+.cal-year-box .row-fluid:hover, .cal-row-fluid:hover {
+  background-color: #424242;
+}
+
+[class*="cal-cell"]:hover {
+  background-color: #A3A1A1;
+}
+
+#cal-day-box .cal-day-hour:nth-child(odd) {
+  background-color: #464545;
+}
+
+.day-highlight.dh-event-important:hover, .day-highlight.dh-event-important {
+  background-color: $colorRed;
+}
+.day-highlight.dh-event-info:hover, .day-highlight.dh-event-info {
+  background-color: $colorLightBlue;
+}
+#cal-week-box {
+  background-color: #727070;
+}
+#cal-slide-content {
+  background-color: #222222;
+}
+
+.cal-day-today {
+  background-color: #B3B8B3;
+}

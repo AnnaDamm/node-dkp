@@ -1,0 +1,18 @@
+<%
+    var affirmedClass = affirmedHere ? (UserData.id === charId ? "alert-success" : "alert-info") : "",
+        multipleSignupsClass = signupCount > 1 ? "multiple-signups": "";
+%>
+
+<li class="character">
+    <% if (UserData.isAdmin && !isCharAffirmed) { %>
+        <a href="javascript:void(0);" title="<%- Translator.translate("raid.signedUpListItemCharacter.affirm") %>" class="has-tooltip <%- affirmedClass %> <%- multipleSignupsClass %> affirm"
+           data-placement="right" data-id="<%- charId %>" data-role-id="<%- roleId %>" data-name="<%- charName %>" data-toggle="tooltip">
+            <span class="glyphicon glyphicon-ok pull-right"></span>
+            <%- charName %>
+        </a>
+    <% } else { %>
+        <a class="<%- affirmedClass %> <%- multipleSignupsClass %> no-hover" data-id="<%- charId %>">
+            <%- charName %>
+        </a>
+    <% } %>
+</li>

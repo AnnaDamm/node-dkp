@@ -1,0 +1,20 @@
+<li class="active">
+    <% if (signedUpHere) { %>
+        <a href="javascript:void(0);" class="removeSignUp has-tooltip" title="<%- Translator.translate("raid.signedUpListItem.removeSignUp") %>"
+           data-placement="top" data-toggle="tooltip" data-role-id="<%- roleId %>">
+                    <span class="badge pull-right <%- alertClass %>">
+                        <%- signedUpAmount %> / <%- amountToGet %>
+                    </span>
+            <%- roleName %>
+        </a>
+    <% } else { %>
+        <a href="javascript:void(0);" class="signUp has-tooltip" title="<%- Translator.translate("raid.signedUpListItem.signUp", roleName) %>"
+           data-role-id="<%- roleId %>" data-placement="top" data-toggle="tooltip">
+            <span class="badge pull-right <%- alertClass %>">
+                <%- signedUpAmount %> / <%- amountToGet %>
+            </span>
+            <%- roleName %>
+        </a>
+    <% } %>
+    <ul class="nav nav-pills nav-stacked characterList" data-role-id="<%- roleId %>"></ul>
+</li>

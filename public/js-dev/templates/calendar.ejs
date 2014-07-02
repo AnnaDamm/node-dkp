@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12" id="menu"></div>
+    <div class="col-lg-4 col-md-4 col-sm-7 col-xs-12">
+        <h4 class="calendar-title"></h4>
+    </div>
+    <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 calendar-buttons pull-right">
+        <div class="calendar-nav btn-group">
+            <button class="btn btn-primary prev" data-calendar-nav="prev"><span class="glyphicon glyphicon-chevron-left"></span></button>
+            <button class="btn btn-primary today" data-calendar-nav="today"><%- Translator.translate("calendar.today") %></button>
+            <button class="btn btn-primary next" data-calendar-nav="next"><span class="glyphicon glyphicon-chevron-right"></span></button>
+        </div>
+        <div class="calendar-view btn-group">
+            <button class="btn btn-info year" data-calendar-view="year"><%- Translator.translate("calendar.year") %></button>
+            <button class="btn btn-info month" data-calendar-view="month"><%- Translator.translate("calendar.month") %></button>
+            <button class="btn btn-info week" data-calendar-view="week"><%- Translator.translate("calendar.week") %></button>
+            <button class="btn btn-info day" data-calendar-view="day"><%- Translator.translate("calendar.day") %></button>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-9">
+        <div id="calendar-div"></div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 pull-right">
+        <div class="panel panel-primary plannedEvents">
+            <div class="panel-heading"><h5><%- Translator.translate("calendar.plannedEvents") %></h5></div>
+            <div class="panel-body">
+                <ul id="plannedEvents" class="nav nav-list"></ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 pull-right">
+        <div class="panel panel-default pastEvents">
+            <div class="panel-heading"><h5><%- Translator.translate("calendar.lastEvents") %></h5></div>
+            <div class="panel-body">
+                <ul id="pastEvents" class="nav nav-list"></ul>
+            </div>
+        </div>
+    </div>
+</div>
