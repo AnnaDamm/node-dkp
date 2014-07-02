@@ -2,12 +2,9 @@
     "language.iso": "de-DE",
     "language.short": "de",
     "language.name": "deutsch",
-
     "error.error": "Fehler!",
     "success.success": "Erfolg!",
-
     "errors.connection": "Verbindung fehlgeschlagen",
-
     "editRaid.raid": "Event",
     "editRaid.settings": "Einstellungen",
     "editRaid.data": "Daten",
@@ -30,7 +27,6 @@
     "editRaid.settingsForm.classDistribution.description": "Anzahl benötigter Charaktere der Rolle {0}",
     "editRaid.loadFailed": "Laden der Einstellungen fehlgeschlagen",
     "editRaid.deleteFailed": "Löschen fehlgeschlagen",
-
     "items.addNew": "Neues Hinzufügen",
     "items.items": "Items",
     "items.form.data": "Daten",
@@ -44,7 +40,6 @@
     "items.form.delete": "Löschen",
     "items.loadFailed": "Laden der Items fehlgeschlagen",
     "items.deleteFailed": "Löschen fehlgeschlagen",
-
     "raid.edit": "Bearbeiten",
     "raid.signUps": "Anmeldungen",
     "raid.signOffs": "Abmeldungen",
@@ -90,7 +85,6 @@
     "raid.signedUpListItem.removeSignUp": "Anmeldung zurückziehen",
     "raid.signedUpListItem.signUp": "Als {0} anmelden",
     "raid.signedUpListItemCharacter.affirm": "Bestätigen",
-
     "raidSettings.addNew": "Neues Hinzufügen",
     "raidSettings.settings": "Event-Einstellungen",
     "raidSettings.settingsLoadFailed": "Laden der Einstellungen fehlgeschlagen",
@@ -112,7 +106,6 @@
     "raidSettings.form.amount.description": "Anzahl benötigter Charaktere der Rolle {0}",
     "raidSettings.form.save": "Speichern",
     "raidSettings.form.delete": "Löschen",
-
     "register.register": "Registrieren",
     "register.loginData": "Login-Daten",
     "register.loginName": "Loginname (nicht Charaktername)",
@@ -126,7 +119,6 @@
     "register.characterName": "Charaktername",
     "register.characterName.description": "Name des Charakters im Spiel",
     "register.submit": "Registrieren",
-
     "resetPassword.resetPassword": "Passwort zurücksetzen",
     "resetPassword.setNewPassword": "Neues Passwort festlegen",
     "resetPassword.password": "Passwort",
@@ -134,20 +126,17 @@
     "resetPassword.passwortRepeat": "Passwort (Wiederholung)",
     "resetPassword.passwortRepeat.description": "Passwortwiederholung",
     "resetPassword.submit": "Zurücksetzen",
-
     "roles.roles": "Rollen",
     "roles.submit": "Speichern",
     "roles.confirmDelete": "Soll die Rolle {0} wirklich gelöscht werden?",
     "roles.saveFailed": "Speichern fehlgeschlagen",
     "roles.savedSuccessful": "Rollen wurden erfolgreich gespeichert",
-
     "sendPasswordReset.resetPassword": "Passwort zurücksetzen",
     "sendPasswordReset.emailWillBeSent": "Eine E-Mail zum Zurücksetzen wird an deine Adresse geschickt.",
     "sendPasswordReset.email": "E-Mail",
     "sendPasswordReset.email.description": "E-Mail mit der du dich registriert hast",
     "sendPasswordReset.submit": "Senden",
     "sendPasswordReset.mailSent": "Die E-Mail wurde versandt.",
-
     "settings.settings": "Einstellungen",
     "settings.changeEmail": "E-Mail ändern",
     "settings.currentEmail": "Jetzige E-Mail",
@@ -174,7 +163,6 @@
     "userOverview.userDetailTable.change": "Änderung",
     "userOverview.userDetailTable.sum": "Summe",
     "userOverview.loadFailed": "Mitglieder konnten nicht geladen werden",
-
     "users.users": "Benutzer",
     "users.notBanned": "Nicht gebannt",
     "users.banned": "Gebannt",
@@ -187,7 +175,6 @@
     "users.userRow.setNewLogin": "Neuen Login vergeben",
     "users.userRow.setNewCharname": "Neuen Namen vergeben",
     "users.userRow.setNewEmail": "Neue Email vergeben",
-
     "calendar.today": "Heute",
     "calendar.year": "Jahr",
     "calendar.month": "Monat",
@@ -199,9 +186,7 @@
     "calendar.raidListItem.signedUp": "Du bist angemeldet",
     "calendar.noPlannedEvents": "Keine geplanten Events",
     "calendar.noPastEvents": "Keine vergangenen Events",
-
     "loading.imgAlt": "Lädt...",
-
     "menu.dkp": "DKP",
     "menu.newEvent": "Neues Event",
     "menu.toggleDropdown": "Dropdown umschalten",
