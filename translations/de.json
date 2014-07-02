@@ -146,7 +146,7 @@
     "sendPasswordReset.email": "E-Mail",
     "sendPasswordReset.email.description": "E-Mail mit der du dich registriert hast",
     "sendPasswordReset.submit": "Senden",
-    "sendPasswordReset.mailSent": "Die E-Mail wurde versandt."
+    "sendPasswordReset.mailSent": "Die E-Mail wurde versandt.",
 
     "settings.settings": "Einstellungen",
     "settings.changeEmail": "E-Mail ändern",
