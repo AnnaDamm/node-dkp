@@ -1,6 +1,6 @@
 {
     "name": "node-dkp",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "A DKP System for MMORPGs written in NodeJS.",
     "keywords": ["dkp", "rpg", "mmo", "mmorpg", "points"],
     "author": {
@@ -41,8 +41,8 @@
         "requirejs": "*"
     },
     "scripts": {
-        "start": "./app.js",
-        "postinstall": "./install.js",
-        "postupdate": "./install.js"
+        "start": "node app.js",
+        "postinstall": "node install.js",
+        "postupdate": "node install.js"
     }
 }
