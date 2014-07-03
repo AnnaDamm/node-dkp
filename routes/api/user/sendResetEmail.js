@@ -5,14 +5,15 @@ var mongojs = require("mongojs"),
     uuid    = require("node-uuid"),
 
     path           = require('path'),
-    templatesDir   = path.join(__dirname, "../../../", "emailTemplates"),
     emailTemplates = require('email-templates'),
-    nodemailer     = require('nodemailer');
+    nodemailer     = require('nodemailer'),
 
-module.exports = function (mongo, config) {
+    defaultSettings = require(path.join(__dirname, "../../../", "defaultSettings.json"));
+
+module.exports = function (mongo, config, settings, translate) {
     var userCollection = mongo.collection('users');
     return function (req, res) {
-
+        var templatesDir = path.join(__dirname, "../../../", "translations/emailTemplates", req.params.language);
         async.waterfall([
             function validateForm(waterfallDone) {
                 function checkExist(name) {
@@ -48,20 +49,27 @@ module.exports = function (mongo, config) {
                     waterfallDone(error, user, resetHash);
                 });
             },
-            function sendEmail(user, resetHash, waterfallDone) {
+            function getSmtpSettings(user, resetHash, waterfallDone) {
+                settings.get("smtp", function (error, smtp) {
+                    if (error) {
+                        smtp = defaultSettings.smtp;
+                    }
+                    waterfallDone(null, user, resetHash, smtp);
+                });
+            },
+            function sendEmail(user, resetHash, smtp, waterfallDone) {
                 var resetUrl = req.protocol + "://" + config.hostname + "/#resetPassword/" + resetHash,
                     transport = nodemailer.createTransport("SMTP", {
-                        host: config.smtp.host,
-                        port: config.smtp.port,
+                        host: smtp.host,
+                        port: smtp.port,
                         auth: {
-                            user: config.smtp.user,
-                            pass: config.smtp.password
+                            user: smtp.user,
+                            pass: smtp.password
                         }
                     });
 
                 emailTemplates(templatesDir, function (error, template) {
                     if (error) {
-                        console.log(error);
                         return waterfallDone(error);
                     }
                     template("passwordReset", {
@@ -69,23 +77,17 @@ module.exports = function (mongo, config) {
                         resetUrl: resetUrl
                     }, function (error, html, text) {
                         if (error) {
-                            console.log(error);
                             return waterfallDone(error);
                         }
                         transport.sendMail({
-                            from:    config.smtp.from,
+                            from:    smtp.from,
                             to:      user.email,
-                            subject: "Passwort zurücksetzen",
+                            subject: translate.translate("sendResetEmail.title", req.params.language),
                             html:    html,
                             text:    text
                         }, function (error) {
-                            if (error) {
-                                console.log(error);
-                                return waterfallDone(error);
-                            }
-                            waterfallDone();
+                            waterfallDone(error);
                         });
-                        waterfallDone();
                     });
                 });
             }
@@ -93,7 +95,7 @@ module.exports = function (mongo, config) {
             if (error) {
                 return res.json({
                     success: false,
-                    data: error.message
+                    data: error.msg
                 });
             }
             return res.json({

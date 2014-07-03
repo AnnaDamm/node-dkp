@@ -1,0 +1,16 @@
+{
+    "defaultLanguage": "en",
+    "smtp": {
+        "host": "localhost",
+        "port": 587,
+        "user": "",
+        "password": "",
+        "from": "DKP System <no-reply@node-dkp.com>"
+    },
+    "recaptcha": {
+        "publicKey": "",
+        "privateKey": ""
+    },
+    "theme": "darkly",
+    "siteName": "node-dkp"
+}

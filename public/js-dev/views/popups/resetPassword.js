@@ -77,13 +77,13 @@ define('views/popups/resetPassword', [
                             if (data.success === true) {
                                 self.loginChecked = true;
                                 $form.trigger("submit");
+                            } else if (data.data && data.data.length) {
+                                errorFields = data.data.split(",");
+                                $.each(errorFields, function (index, field) {
+                                    addError($("#resetpassword" + field));
+                                });
                             } else {
-                                if (data.data.length) {
-                                    errorFields = data.data.split(",");
-                                    $.each(errorFields, function (index, field) {
-                                        addError($("#resetpassword" + field));
-                                    });
-                                }
+                                self.vent.trigger('Alert:Error', window.Translator.translate("resetPassword.errorResetting"), self.el);
                             }
                         },
                         error: function (data) {

@@ -126,6 +126,7 @@
     "resetPassword.passwortRepeat": "Passwort (Wiederholung)",
     "resetPassword.passwortRepeat.description": "Passwortwiederholung",
     "resetPassword.submit": "Zurücksetzen",
+    "resetPassword.errorResetting": "Das Passwort konnte nicht zurückgesetzt werden.",
     "roles.roles": "Rollen",
     "roles.submit": "Speichern",
     "roles.confirmDelete": "Soll die Rolle {0} wirklich gelöscht werden?",
@@ -137,6 +138,7 @@
     "sendPasswordReset.email.description": "E-Mail mit der du dich registriert hast",
     "sendPasswordReset.submit": "Senden",
     "sendPasswordReset.mailSent": "Die E-Mail wurde versandt.",
+    "sendPasswordReset.errorSendingMail": "Die E-Mail konnte nicht versandt werden.",
     "settings.settings": "Einstellungen",
     "settings.changeEmail": "E-Mail ändern",
     "settings.currentEmail": "Jetzige E-Mail",
@@ -195,5 +197,11 @@
     "menu.roles": "Rollen",
     "menu.items": "Items",
     "menu.eventSettings": "Events",
-    "menu.logout": "Logout"
+    "menu.logout": "Logout",
+
+    "index.login": "Login",
+    "index.register": "Registrieren",
+    "index.lostPassword": "Passwort vergessen?",
+
+    "sendResetEmail.title": "Passwort zurücksetzen"
 }

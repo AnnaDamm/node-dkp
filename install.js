@@ -9,21 +9,40 @@ var sys      = require("sys"),
     uuid     = require("node-uuid"),
     read     = require("read"),
     crypto   = require("crypto"),
+    stdin    = process.openStdin(),
 
     config   = require("./config"),
-    database = require("./database")(),
 
-    mongo    = mongojs(config.mongo.url, [
-        "users", "raids", "raidSettings", "items"
-    ]),
+    mongo    = mongojs(config.mongo.url),
 
+    database = require("./lib/database")(mongo),
 
-    stdin    = process.openStdin();
+    defaultSettings = require("./defaultSettings.json");
 
 async.waterfall([
     function initDatabase(waterfallDone) {
         console.log("Initializing database...");
-        database.init(mongo, waterfallDone);
+        database.createIndexes(waterfallDone);
+    },
+    function createDefaultSettings(waterfallDone) {
+        console.log("Insert default settings...");
+        var settingsCollection = mongo.collection("settings");
+        async.each(Object.getOwnPropertyNames(defaultSettings), function (key, eachDone) {
+            settingsCollection.update({
+                key: key
+            }, {
+                $setOnInsert: {
+                    key: key,
+                    value: defaultSettings[key]
+                }
+            }, {
+                upsert: true
+            }, function (error) {
+                eachDone(error);
+            });
+        }, function eachDone(error) {
+            waterfallDone(error);
+        });
     },
     function checkIfAdminAccountExists(waterfallDone) {
         mongo.collection("users").findOne({isAdmin: true}, function (error, user) {

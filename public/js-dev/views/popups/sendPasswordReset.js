@@ -74,13 +74,13 @@ define('views/popups/sendPasswordReset', [
                         if (data.success === true) {
                             $(self.el).modal('hide');
                             self.vent.trigger("Alert:Success", window.Translator.translate("sendPasswordReset.mailSent"));
+                        } else if (data.data &&data.data.length) {
+                            errorFields = data.data.split(",");
+                            $.each(errorFields, function (index, field) {
+                                addError($("#sendresetmail" + field));
+                            });
                         } else {
-                            if (data.data.length) {
-                                errorFields = data.data.split(",");
-                                $.each(errorFields, function (index, field) {
-                                    addError($("#sendresetmail" + field));
-                                });
-                            }
+                            self.vent.trigger('Alert:Error', window.Translator.translate("sendPasswordReset.errorSendingMail"), self.el);
                         }
                     },
                     error: function (data) {

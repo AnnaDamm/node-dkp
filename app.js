@@ -19,19 +19,19 @@ var rootDir = __dirname,
 
     app          = express(),
 
-    mongo        = mongojs(config.mongo.url, [
-        "users", "raids", "raidSettings", "items"
-    ]),
+    mongo        = mongojs(config.mongo.url),
 
     routes       = require('./routes')(),
-    database     = require("./database")(),
 
     RedisStore   = require('connect-redis')(session),
 
 
     // lib modules
-    translation = new require("./lib/translation")(config);
+    database     = require("./lib/database")(mongo),
+    settings     = new require("./lib/settings")(config, mongo),
+    translation  = new require("./lib/translation")(config, settings);
 
+database.createIndexes();
 
 if (process.env.NODE_ENV !== "development") {
     app.set('view cache', true);
@@ -68,8 +68,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-database.init(mongo);
-routes.init(app, mongo, config, translation);
+routes.init(app, mongo, config, settings, translation);
 
 app.use(function (error, req, res, next) {
     console.log(error.stack);

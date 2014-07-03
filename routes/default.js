@@ -1,9 +1,10 @@
 "use strict";
 
 var async   = require("async"),
-    mongojs = require("mongojs");
+    mongojs = require("mongojs"),
+    defaultSettings = require(__dirname + "/../defaultSettings.json");
 
-module.exports = function (mongo, config, translation) {
+module.exports = function (mongo, config, settings, translation) {
     var roleCollection = mongo.collection('roles'),
         userCollection = mongo.collection('users');
 
@@ -21,7 +22,8 @@ module.exports = function (mongo, config, translation) {
     }
     return function (req, res) {
         var roleObject = {},
-            userObject = null;
+            userObject = null,
+            settingsObject;
         async.parallel([
             function getRoles(parallelDone) {
                 roleCollection.find({
@@ -59,15 +61,25 @@ module.exports = function (mongo, config, translation) {
 
                     parallelDone();
                 });
+            },
+            function getSettings(parallelDone) {
+                settings.getMultiple(["siteName", "theme", "recaptcha"], function (error, values) {
+                    settingsObject = values;
+                    parallelDone();
+                });
             }
         ], function parallelDone() {
             res.render('index', {
                 CSRFToken:    req.csrfToken(),
                 user:         userObject,
                 roles:        roleObject,
-                recaptchaKey: config.recaptcha.publicKey,
-                theme:        config.theme,
-                translations: translation.getTranslation(req.params.language)
+                recaptchaKey: settingsObject.recaptcha || defaultSettings.recaptcha,
+                theme:        settingsObject.theme     || defaultSettings.theme,
+                translations: translation.getTranslation(req.params.language),
+                translate:  function (key) {
+                    return translation.translate(key, req.params.language)
+                },
+                siteName:     settingsObject.siteName  || defaultSettings.siteName
             });
         });
     };

@@ -1,7 +1,6 @@
 module.exports = {
     hostname: "www.node-dkp.com",
     port: 50000,
-    defaultLanguage: "en",
 
     cookie: {
         secret: "QEgWmb7f3mZ6niNjLerHNWP8k9xKUW3nDmkPdaH2TmaWbg3TWk2qmE5D98Wo94uDz5GsMetrayoLaU9tghFtNTLyHztEGGHbtsuBtaDz9mzwCmvXYY66JhXzy4cCcYXL",
@@ -20,20 +19,5 @@ module.exports = {
         port: 6379,
         db: 0,
         pass: null
-    },
-
-    smtp: {
-        host: "localhost",
-        port: 587,
-        user: "",
-        password: "",
-        from: "DKP System <no-reply@node-dkp.com>"
-    },
-
-    recaptcha: {
-        publicKey: "",
-        privateKey: ""
-    },
-
-    theme: "darkly"
+    }
 };

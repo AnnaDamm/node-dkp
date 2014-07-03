@@ -21,10 +21,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 center">
                             <div class="page-header">
-                                <h1>Vigiles Nocturni DKP</h1>
+                                <h1><%- siteName %></h1>
                             </div>
                             <div class="panel panel-default">
-                                <div class="panel-heading">Login</div>
+                                <div class="panel-heading"><%- translate("index.login") %></div>
                                 <div class="panel-body">
                                     <form id="login" action="login" method="POST" role="form">
                                         <input type="hidden" name="_csrf" value="<%- CSRFToken %>"/>
@@ -46,8 +46,8 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm7 col-md-5 col-lg-4 center">
-                            <button type="button" id="registerbutton" class="btn btn-link btn-sm">Registrieren</button>
-                            <button type="button" id="resetpasswordbutton" class="btn btn-link btn-sm">Passwort vergessen?</button>
+                            <button type="button" id="registerbutton" class="btn btn-link btn-sm"><%- translate("index.register") %></button>
+                            <button type="button" id="resetpasswordbutton" class="btn btn-link btn-sm"><%- translate("index.lostPassword") %></button>
                         </div>
                     </div>
                 <% } %>

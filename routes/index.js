@@ -46,7 +46,7 @@ var async    = require("async"),
 
 module.exports = function () {
     return {
-        init: function init(app, mongo, config, translation) {
+        init: function init(app, mongo, config, settings, translation) {
 
             app.get("/", function (req, res) {
                 res.redirect(req.hostUrl + "/" + translation.getDefaultLanguage(req));
@@ -55,7 +55,7 @@ module.exports = function () {
             async.each(Object.getOwnPropertyNames(routes), function (route, eachDone) {
                 try {
                     var splitted = route.split(" "),
-                        routeFunction = require('./' + routes[route])(mongo, config, translation),
+                        routeFunction = require('./' + routes[route])(mongo, config, settings, translation),
                         method = splitted[0];
 
                     app[method]("/:language" + splitted[1], function (req, res) {
