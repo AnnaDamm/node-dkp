@@ -8,12 +8,12 @@ var mongojs = require("mongojs"),
     emailTemplates = require('email-templates'),
     nodemailer     = require('nodemailer'),
 
+    templatesDir = path.join(__dirname, "../../../", "emailTemplates"),
     defaultSettings = require(path.join(__dirname, "../../../", "defaultSettings.json"));
 
 module.exports = function (mongo, config, settings, translate) {
     var userCollection = mongo.collection('users');
     return function (req, res) {
-        var templatesDir = path.join(__dirname, "../../../", "translations/emailTemplates", req.params.language);
         async.waterfall([
             function validateForm(waterfallDone) {
                 function checkExist(name) {
@@ -74,7 +74,10 @@ module.exports = function (mongo, config, settings, translate) {
                     }
                     template("passwordReset", {
                         name: user.name,
-                        resetUrl: resetUrl
+                        resetUrl: resetUrl,
+                        translate: function (key) {
+                            return translate.translate(key, req.params.language)
+                        }
                     }, function (error, html, text) {
                         if (error) {
                             return waterfallDone(error);

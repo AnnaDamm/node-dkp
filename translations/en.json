@@ -126,6 +126,7 @@
     "resetPassword.passwortRepeat": "Password (repeat)",
     "resetPassword.passwortRepeat.description": "Repeat the password",
     "resetPassword.submit": "Reset password",
+    "resetPassword.errorResetting": "Password could not be reset.",
     "roles.roles": "Roles",
     "roles.submit": "Save",
     "roles.confirmDelete": "Really delete the role {0}?",
@@ -137,6 +138,7 @@
     "sendPasswordReset.email.description": "Email with which you registered",
     "sendPasswordReset.submit": "Send",
     "sendPasswordReset.mailSent": "Email has been sent.",
+    "sendPasswordReset.errorSendingMail": "E-Mail could not be sent.",
     "settings.settings": "Settings",
     "settings.changeEmail": "Change email",
     "settings.currentEmail": "Current email",
@@ -194,5 +196,14 @@
     "menu.roles": "Roles",
     "menu.items": "Items",
     "menu.eventSettings": "Events",
-    "menu.logout": "Logout"
+    "menu.logout": "Logout",
+    "index.login": "Login",
+    "index.register": "Register",
+    "index.lostPassword": "Forgot password?",
+    "index.changeLanguage": "Change language",
+    "sendResetEmail.title": "Reset password",
+    "email.passwordReset.title": "Reset password",
+    "email.passwordReset.helloLine": "Hello {0},",
+    "email.passwordReset.clickHere": "To reset you password for the DKP system, click the following link:",
+    "email.passwordReset.useUrl": "To reset your password for the DKP system, use the following address in your browser:"
 }

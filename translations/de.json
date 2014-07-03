@@ -204,5 +204,10 @@
     "index.lostPassword": "Passwort vergessen?",
     "index.changeLanguage": "Sprache ändern",
 
-    "sendResetEmail.title": "Passwort zurücksetzen"
+    "sendResetEmail.title": "Passwort zurücksetzen",
+
+    "email.passwordReset.title": "Passwort zurücksetzen",
+    "email.passwordReset.helloLine": "Hallo {0},",
+    "email.passwordReset.clickHere": "Zum Zurücksetzen deines Passwortes für das DKP System, klicke hier:",
+    "email.passwordReset.useUrl": "Zum Zurücksetzen deines Passwortes für das DKP System, rufe diese Adresse in deinem Browser auf:"
 }
