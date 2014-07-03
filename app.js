@@ -34,7 +34,7 @@ var rootDir = __dirname,
 // check if correct version
 settings.get("version", function (error, version) {
     if (error || version !== packageJson.version) {
-        console.log("Version mismatch. Please use the installscript. (./install.js)");
+        console.log("Version mismatch. Please use the update script. (./update.js)");
         process.exit(1);
     }
 });
