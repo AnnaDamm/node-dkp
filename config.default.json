@@ -1,0 +1,19 @@
+{
+    "port": 80,
+    "cookie": {
+        "secret": "VKWCyLNomdmLqLPdrz5ZER4zTLnF5R9bwW6pH8rdvJmnSQuKnXS3ARaHngWZNwoge4VxbENDgcneGY93lM4FUvoaqnrb1kEfyEq6XKGGT9kueOIW6n0nCoO8cYWX9bxY",
+        "maxAge": 2592000000
+    },
+    "session": {
+        "secret": "uQgSp4R7GSSGzsAxzXhlmktTOu6iVgKVRL9Zqez2z7PeiFYcBbzio93Jlo5Mf8IhLBYa4l1PfvPdX02TTiUgobC5dw44evmGAFk5JcYOUH8Vk9lySMm0UXvg7E9aDTUr"
+    },
+    "mongo": {
+        "url": "127.0.0.1:27017/node-dkp"
+    },
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379,
+        "db": 0,
+        "pass": null
+    }
+}

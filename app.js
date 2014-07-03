@@ -4,8 +4,6 @@
 "use strict";
 
 var rootDir = __dirname,
-
-    config  = require("./config"),
     express = require("express"),
     mongojs = require("mongojs"),
 
@@ -17,21 +15,29 @@ var rootDir = __dirname,
     session      = require("express-session"),
     csurf        = require("csurf"),
 
-    app          = express(),
-
-    mongo        = mongojs(config.mongo.url),
+    config       = require("./config.json"),
 
     routes       = require('./routes')(),
-
     RedisStore   = require('connect-redis')(session),
 
+    mongo        = mongojs(config.mongo.url),
 
     // lib modules
     database     = require("./lib/database")(mongo),
     settings     = new require("./lib/settings")(config, mongo),
-    translation  = new require("./lib/translation")(config, settings);
+    translation  = new require("./lib/translation")(config, settings),
 
-database.createIndexes();
+    packageJson  = require("./package.json"),
+
+    app          = express();
+
+// check if correct version
+settings.get("version", function (error, version) {
+    if (error || version !== packageJson.version) {
+        console.log("Version mismatch. Please use the installscript. (./install.js)");
+        process.exit(1);
+    }
+});
 
 if (process.env.NODE_ENV !== "development") {
     app.set('view cache', true);

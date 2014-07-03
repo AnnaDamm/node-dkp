@@ -1,8 +1,18 @@
 {
     "name": "node-dkp",
-    "version": "0.1.0",
-    "author": "Anna Damm",
+    "version": "0.1.1",
+    "description": "A DKP System for MMORPGs written in NodeJS.",
+    "keywords": ["dkp", "rpg", "mmo", "mmorpg", "points"],
+    "author": {
+        "name": "Anna Damm",
+        "email": "arany.deve@gmail.com"
+    },
     "repository": "https://github.com/Arany/node-dkp",
+    "homepage": "https://github.com/Arany/node-dkp/wiki",
+    "license": "GPL-2.0",
+    "bugs": {
+        "url": "https://github.com/Arany/node-dkp/issues"
+    },
     "dependencies": {
         "express": "*",
         "ejs": "*",
@@ -24,9 +34,15 @@
         "cookie-parser": "*",
         "csurf": "*",
 
-        "chokidar": "*"
+        "chokidar": "*",
+        "randomstring": "*"
     },
     "devDependencies": {
         "requirejs": "*"
+    },
+    "scripts": {
+        "start": "./app.js",
+        "postinstall": "./install.js",
+        "postupdate": "./install.js"
     }
 }
