@@ -1,5 +1,4 @@
 module.exports = {
-    hostname: "www.node-dkp.com",
     port: 50000,
 
     cookie: {

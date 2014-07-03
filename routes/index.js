@@ -49,7 +49,7 @@ module.exports = function () {
         init: function init(app, mongo, config, settings, translation) {
 
             app.get("/", function (req, res) {
-                res.redirect(req.hostUrl + "/" + translation.getDefaultLanguage(req));
+                res.redirect(301, "./" + translation.getDefaultLanguage(req) + "/");
             });
 
             async.each(Object.getOwnPropertyNames(routes), function (route, eachDone) {

@@ -61,13 +61,6 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(csurf());
 
-
-app.use(function (req, res, next) {
-    req.hostUrl = req.protocol + "://" + config.hostname + ([80, 443].indexOf(config.port) < 0 ? ":" + config.port : "");
-
-    next();
-});
-
 routes.init(app, mongo, config, settings, translation);
 
 app.use(function (error, req, res, next) {
