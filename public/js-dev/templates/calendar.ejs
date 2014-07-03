@@ -16,12 +16,14 @@
             <button class="btn btn-info day" data-calendar-view="day"><%- Translator.translate("calendar.day") %></button>
         </div>
     </div>
-
 </div>
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-9">
         <div id="calendar-div"></div>
+        <a href="javascript:void(0);" class="changeLanguage btn btn-link btn-sm"
+           data-type="select" title="<%- Translator.translate("index.changeLanguage") %>"
+           data-value="<%- Translator.translate("language.short") %>"></a>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-3 pull-right">
         <div class="panel panel-primary plannedEvents">

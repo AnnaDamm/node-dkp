@@ -126,6 +126,17 @@ define('views/calendar', [
 
             this.menu = new MenuView({vent: this.vent});
             this.menu.render();
+
+            var languageNames = [];
+            _.each(window.Languages, function (name, shortName) {
+                languageNames.push({value: shortName, text: name})
+            });
+            $(".changeLanguage").editable({
+                source: languageNames,
+                success: function (response, newValue) {
+                    window.location = window.location.href.replace(/\/([a-z]{2})\/(#.*)?$/, "/" + newValue + "/$2");
+                }
+            });
         }
     });
 });

@@ -202,6 +202,7 @@
     "index.login": "Login",
     "index.register": "Registrieren",
     "index.lostPassword": "Passwort vergessen?",
+    "index.changeLanguage": "Sprache ändern",
 
     "sendResetEmail.title": "Passwort zurücksetzen"
 }

@@ -79,6 +79,7 @@ module.exports = function (mongo, config, settings, translation) {
                 translate:  function (key) {
                     return translation.translate(key, req.params.language)
                 },
+                languageNames : translation.getLanguageNames(),
                 siteName:     settingsObject.siteName  || defaultSettings.siteName
             });
         });

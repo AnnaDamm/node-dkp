@@ -48,6 +48,9 @@
                         <div class="col-xs-12 col-sm7 col-md-5 col-lg-4 center">
                             <button type="button" id="registerbutton" class="btn btn-link btn-sm"><%- translate("index.register") %></button>
                             <button type="button" id="resetpasswordbutton" class="btn btn-link btn-sm"><%- translate("index.lostPassword") %></button>
+                            <a href="javascript:void(0);" class="changeLanguage btn btn-link btn-sm"
+                               data-type="select" title="<%- translate("index.changeLanguage") %>"
+                               data-value="<%- translate("language.short") %>"></a>
                         </div>
                     </div>
                 <% } %>
@@ -61,6 +64,7 @@
         var CSRFToken    = "<%- CSRFToken %>",
             UserData     = <%- JSON.stringify(user) %>,
             Roles        = <%- JSON.stringify(roles) %>,
+            Languages    = <%- JSON.stringify(languageNames) %>,
             Translations = <%- JSON.stringify(translations)%>;
         <% if (!user) { %>
             var RecaptchaKey = "<%- recaptchaKey %>";

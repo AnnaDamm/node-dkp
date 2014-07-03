@@ -5,8 +5,9 @@
 define('views/index', [
     'jquery',
     'underscore',
-    'backbone'
-], function ($, _, backbone) {
+    'backbone',
+    'lib/bootstrap-editable'
+], function ($, _, backbone, editable) {
     function addError($input) {
         $input.parents('.form-group')
             .removeClass('has-success')
@@ -31,6 +32,17 @@ define('views/index', [
         },
         initialize: function (options) {
             this.vent = options.vent;
+
+            var languageNames = [];
+            _.each(window.Languages, function (name, shortName) {
+                languageNames.push({value: shortName, text: name})
+            });
+            $(".changeLanguage").editable({
+                source: languageNames,
+                success: function (response, newValue) {
+                    window.location = window.location.href.replace(/\/([a-z]{2})\/(#.*)?$/, "/" + newValue + "/$2");
+                }
+            });
         },
 
 
