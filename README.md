@@ -1,7 +1,7 @@
 # node-dkp
 node-dkp is a DKP system for MMORPGs written in NodeJS. It handles raid or guild meeting registrations and tracks items that members got within the raids, as well as points given or taken.
 
-![](/screenshots/screenshots_together.png)
+![](/screenshots/screenshots_together.png?raw=true)
 ([Weitere Screenshots](/screenshots))
 
 ## Pre-Requisits
