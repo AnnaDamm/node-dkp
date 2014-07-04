@@ -35,7 +35,7 @@ Via git:
 
 ````sh
 git pull
-./update.sh
+./update.js
 ````
 
 Via npm:
