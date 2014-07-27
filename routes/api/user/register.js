@@ -5,7 +5,7 @@ var async     = require("async"),
     uuid      = require("node-uuid"),
     recaptcha = require("simple-recaptcha");
 
-module.exports = function (mongo, config) {
+module.exports = function (mongo, config, settings) {
     var userCollection = mongo.collection('users');
     return function (req, res) {
 
@@ -44,19 +44,20 @@ module.exports = function (mongo, config) {
             },
 
             function checkRecaptcha(waterfallDone) {
-                if (config.recaptcha.privateKey.length === 0) {
-                    return waterfallDone();
-                }
-
-                var ip = req.ip,
-                    challenge = req.body.recaptcha_challenge_field,
-                    response  = req.body.recaptcha_response_field;
-
-                recaptcha(config.recaptcha.privateKey, ip, challenge, response, function (error) {
-                    if (error) {
-                        return waterfallDone(new Error("message:" + error.message));
+                settings.get("recaptcha", function (error, recaptchaKeys) {
+                    if (error || typeof recaptchaKeys !== "object" || !recaptchaKeys.privateKey || !recaptchaKeys.publicKey) {
+                        return waterfallDone();
                     }
-                    waterfallDone();
+                    var ip = req.ip,
+                        challenge = req.body.recaptcha_challenge_field,
+                        response  = req.body.recaptcha_response_field;
+
+                    recaptcha(recaptchaKeys.privateKey, ip, challenge, response, function (error) {
+                        if (error) {
+                            return waterfallDone(new Error("message:" + error.message));
+                        }
+                        waterfallDone();
+                    });
                 });
             },
 

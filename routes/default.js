@@ -73,8 +73,8 @@ module.exports = function (mongo, config, settings, translation) {
                 CSRFToken:    req.csrfToken(),
                 user:         userObject,
                 roles:        roleObject,
-                recaptchaKey: settingsObject.recaptcha || defaultSettings.recaptcha,
-                theme:        settingsObject.theme     || defaultSettings.theme,
+                recaptchaKey: settingsObject.recaptcha.publicKey || defaultSettings.recaptcha.publicKey,
+                theme:        settingsObject.theme               || defaultSettings.theme,
                 translations: translation.getTranslation(req.params.language),
                 translate:  function (key) {
                     return translation.translate(key, req.params.language)
