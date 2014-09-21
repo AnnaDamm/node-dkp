@@ -73,7 +73,7 @@ module.exports = function (mongo, config, settings, translate) {
                         return waterfallDone(error);
                     }
                     template("passwordReset", {
-                        name: user.name,
+                        name: user.login,
                         resetUrl: resetUrl,
                         translate: function (key) {
                             return translate.translate(key, req.params.language)
