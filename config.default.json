@@ -1,4 +1,5 @@
 {
+    "hostname": "www.node-dkp.com",
     "port": 80,
     "cookie": {
         "secret": "VKWCyLNomdmLqLPdrz5ZER4zTLnF5R9bwW6pH8rdvJmnSQuKnXS3ARaHngWZNwoge4VxbENDgcneGY93lM4FUvoaqnrb1kEfyEq6XKGGT9kueOIW6n0nCoO8cYWX9bxY",
