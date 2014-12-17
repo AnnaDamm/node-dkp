@@ -23,7 +23,7 @@ module.exports = function (mongo) {
             },
             function sortUsers(users, waterfallDone) {
                 users.sort(function (userA, userB) {
-                    return userA.characters[0].name.toLowerCase() > userB.characters[0].name.toLowerCase();
+                    return userA.characters[0].name.toLowerCase() > userB.characters[0].name.toLowerCase() ? 1 : -1;
                 });
                 waterfallDone(null, users);
             }
