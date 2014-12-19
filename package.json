@@ -42,6 +42,7 @@
     },
     "scripts": {
         "start": "node app.js",
-        "postupdate": "node update.js"
+        "postupdate": "node update.js",
+        "prepublish": "./buildJavascript.sh"
     }
 }

@@ -161,6 +161,7 @@
     "userOverview.dkpMinus": "DKP -",
     "userOverview.userDetailTable.date": "Datum",
     "userOverview.userDetailTable.event": "Event",
+    "userOverview.userDetailTable.role": "Rolle",
     "userOverview.userDetailTable.item": "Item",
     "userOverview.userDetailTable.change": "Änderung",
     "userOverview.userDetailTable.sum": "Summe",
