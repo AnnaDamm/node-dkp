@@ -15,5 +15,6 @@
     "siteName": "node-dkp",
     "itemNeedThreshold": {
         "fixed": 100
-    }
+    },
+    "signOffPunishingTime": 21600000
 }

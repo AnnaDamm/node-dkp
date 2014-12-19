@@ -139,8 +139,9 @@ module.exports = function (mongo, config, settings) {
 
                 async.parallel([
                     function getItemNeededThreshold(parallelDone) {
-                        settings.get("itemNeedThreshold", function (error, itemNeededThreshold) {
-                            raid.itemNeededThreshold = itemNeededThreshold;
+                        settings.getMultiple(["itemNeedThreshold", "signOffPunishingTime"], function (error, values) {
+                            raid.itemNeededThreshold  = values["itemNeededThreshold"];
+                            raid.signOffPunishingTime = values["signOffPunishingTime"];
                             parallelDone();
                         });
                     },

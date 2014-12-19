@@ -56,26 +56,28 @@ define('views/popups/raid/dkpTab', [
             }
         }
         if (raid.attributes.signedOff) {
-            punishishingTime = new Date(raid.attributes.date).getTime() - 21600000; // 6 hours
-            for (characterId in raid.attributes.signedOff) {
-                if (!raid.attributes.signedOff.hasOwnProperty(characterId)) {
-                    continue;
-                }
-                character = raid.attributes.signedOff[characterId];
+            if (raid.attributes.signOffPunishingTime && raid.attributes.signOffPunishingTime > 0) {
+                punishishingTime = new Date(raid.attributes.date).getTime() - raid.attributes.signOffPunishingTime; // 6 hours
+                for (characterId in raid.attributes.signedOff) {
+                    if (!raid.attributes.signedOff.hasOwnProperty(characterId)) {
+                        continue;
+                    }
+                    character = raid.attributes.signedOff[characterId];
 
-                // only affirmed users are punished
-                if (!character.wasAffirmed) {
-                    continue;
-                }
+                    // only affirmed users are punished
+                    if (!character.wasAffirmed) {
+                        continue;
+                    }
 
-                // only users that signed off within the last few hours are punished
-                if (new Date(character.date).getTime() < punishishingTime) {
-                    continue;
+                    // only users that signed off within the last few hours are punished
+                    if (new Date(character.date).getTime() < punishishingTime) {
+                        continue;
+                    }
+                    characters[characterId] = {
+                        name: character.name,
+                        dkp: getDkp(false, raid)
+                    };
                 }
-                characters[characterId] = {
-                    name: character.name,
-                    dkp: getDkp(false, raid)
-                };
             }
         }
 
