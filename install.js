@@ -13,8 +13,8 @@ var sys          = require("sys"),
     stdin        = process.openStdin(),
     randomstring = require("randomstring"),
 
-    defaultSettings = require("./defaultSettings.json"),
-    defaultConfig = require("./config.default.json"),
+    defaultSettings = require("./lib/defaultSettings.json"),
+    defaultConfig   = require("./config.default.json"),
     packageJson     = require("./package.json"),
 
     // init variables that rely on a config file

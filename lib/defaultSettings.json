@@ -12,5 +12,8 @@
         "privateKey": ""
     },
     "theme": "darkly",
-    "siteName": "node-dkp"
+    "siteName": "node-dkp",
+    "itemNeedThreshold": {
+        "fixed": 100
+    }
 }

@@ -95,6 +95,7 @@
     "raidSettings.form.itemdrops": "Itemdrops",
     "raidSettings.form.isDefault": "Default?",
     "raidSettings.form.color": "Farbe",
+    "raidSettings.form.pointAssignment": "Punktevergabe",
     "raidSettings.form.pointsWhenThere": "Punkte bei Anwesenheit",
     "raidSettings.form.pointsWhenThere.description": "Punkte, die anwesende Mitglieder bekommen (min: 0)",
     "raidSettings.form.pointsWhenNotThere": "Punktabzug bei Abwesenheit",

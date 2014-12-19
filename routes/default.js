@@ -1,8 +1,7 @@
 "use strict";
 
 var async   = require("async"),
-    mongojs = require("mongojs"),
-    defaultSettings = require(__dirname + "/../defaultSettings.json");
+    mongojs = require("mongojs");
 
 module.exports = function (mongo, config, settings, translation) {
     var roleCollection = mongo.collection('roles'),
@@ -73,8 +72,8 @@ module.exports = function (mongo, config, settings, translation) {
                 CSRFToken:    req.csrfToken(),
                 user:         userObject,
                 roles:        roleObject,
-                recaptchaKey: settingsObject.recaptcha.publicKey || defaultSettings.recaptcha.publicKey,
-                theme:        settingsObject.theme               || defaultSettings.theme,
+                recaptchaKey: settingsObject.recaptcha.publicKey,
+                theme:        settingsObject.theme,
                 translations: translation.getTranslation(req.params.language),
                 translate:  function (key) {
                     return translation.translate(key, req.params.language)

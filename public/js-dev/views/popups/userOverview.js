@@ -75,17 +75,7 @@ define('views/popups/userOverview', [
                 });
 
                 if (!hasPlus || !hasMinus) {
-                    $('.nav-tabs li.dkp-plus', $el)
-                        .addClass('disabled')
-                        .find('a')
-                            .removeAttr('data-toggle')
-                            .removeAttr('href');
-
-                    $('.nav-tabs li.dkp-minus', $el)
-                        .addClass('disabled')
-                        .find('a')
-                        .removeAttr('data-toggle')
-                        .removeAttr('href');
+                    $('.nav-tabs', $el).hide();
                 }
 
                 $el.on('hidden.bs.modal', function () {
