@@ -7,7 +7,7 @@ module.exports = function (mongo) {
     return function (req, res) {
 
         async.waterfall([
-            function getoles(waterfallDone) {
+            function getRoles(waterfallDone) {
                 roleCollection.find({ }, function (error, roles) {
                     if (error) {
                         return waterfallDone(error);

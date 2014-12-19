@@ -3,11 +3,13 @@
 var mongojs   = require("mongojs"),
     async     = require("async"),
 
-    checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
+    checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$"),
+    raidFunctions = require("../raids/functions")();
 
 module.exports = function (mongo) {
     var dkpCollection  = mongo.collection('dkp'),
-        userCollection = mongo.collection('users');
+        userCollection = mongo.collection('users'),
+        raidCollection = mongo.collection('raids');
 
     return function (req, res) {
         async.waterfall([
@@ -61,15 +63,18 @@ module.exports = function (mongo) {
             },
             function makeHistoryArray(userData, dkpData, waterfallDone) {
                 var historyArray = [],
-                    currentDkp   = userData.dkp;
+                    currentDkp   = userData.dkp,
+                    raidIds = [];
                 dkpData.forEach(function (dkp) {
                     var historyObject = {
                         date: dkp.date,
                         raid: dkp.raid,
+                        role: null,
                         item: dkp.item,
                         change: 0,
                         newDkp: 0
                     };
+                    raidIds.push(mongojs.ObjectId(dkp.raid.id));
                     dkp.user.some(function (user) {
                         if (user.id.toString() === req.body.userId) {
                             historyObject.change = user.dkp;
@@ -83,7 +88,30 @@ module.exports = function (mongo) {
                         historyArray.push(historyObject);
                     }
                 });
-                waterfallDone(null, historyArray);
+                waterfallDone(null, raidIds, historyArray);
+            },
+            function getRaidRoles(raidIds, history, waterfallDone) {
+                if (raidIds.length === 0) {
+                    return waterfallDone(null, history);
+                }
+                raidCollection.find({
+                    _id: { $in: raidIds},
+                    affirmed: { $exists: true}
+                }, function (error, raids) {
+                    if (error) {
+                        return waterfallDone(error);
+                    }
+                    var raidsById = {};
+                    raids.forEach(function (raid) {
+                        raidsById[raid._id] = raid;
+                    });
+                    history.forEach(function (historyObject) {
+                        if (raidsById[historyObject.raid.id]) {
+                            historyObject.role = raidFunctions.getRole(req.body.userId, raidsById[historyObject.raid.id].affirmed);
+                        }
+                    });
+                    waterfallDone(null, history);
+                });
             }
 
         ], function waterfallDone(error, history) {
