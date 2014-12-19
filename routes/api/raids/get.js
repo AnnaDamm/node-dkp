@@ -3,7 +3,7 @@
 var async   = require("async"),
     mongojs = require("mongojs");
 
-module.exports = function (mongo) {
+module.exports = function (mongo, config, settings) {
     var raidCollection      = mongo.collection('raids'),
         dkpCollection       = mongo.collection('dkp'),
         userCollection      = mongo.collection('users'),
@@ -138,6 +138,12 @@ module.exports = function (mongo) {
                 addUserIds(raid.affirmed);
 
                 async.parallel([
+                    function getItemNeededThreshold(parallelDone) {
+                        settings.get("itemNeedThreshold", function (error, itemNeededThreshold) {
+                            raid.itemNeededThreshold = itemNeededThreshold;
+                            parallelDone();
+                        });
+                    },
                     function getUserDkp(parallelDone) {
                         userCollection.find({
                             _id: {
@@ -245,10 +251,6 @@ module.exports = function (mongo) {
                     waterfallDone(null, raid);
                 });
             },
-            function createRaidArray(raid, waterfallDone) {
-                var raidObject = raid;
-                waterfallDone(null, raidObject);
-            }
         ], function waterfallDone(error, raid) {
             if (error) {
                 return res.json({

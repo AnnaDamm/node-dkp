@@ -19,8 +19,12 @@
                             if (raid.userDkp && typeof raid.userDkp[id] === "number") {
                                 if (raid.userDkp[id] < 0) {
                                     characterClass = "dkp-minus";
-                                } else if (raid.userDkp[id] >= 150) {
-                                    characterClass = "dkp-much-plus"
+                                } else {
+                                    if (raid.itemNeededThreshold.fixed) {
+                                        if (raid.userDkp[id] >= raid.itemNeededThreshold.fixed) {
+                                            characterClass = "dkp-much-plus"
+                                        }
+                                    }
                                 }
                             }
                             if (character.items) {

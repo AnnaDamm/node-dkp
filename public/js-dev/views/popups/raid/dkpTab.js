@@ -89,7 +89,7 @@ define('views/popups/raid/dkpTab', [
         // sorting by name
         characterArray = _.keys(characters);
         characterArray.sort(function (userA, userB) {
-            return characters[userA].name.toLowerCase() > characters[userB].name.toLowerCase();
+            return characters[userA].name.toLowerCase() > characters[userB].name.toLowerCase() ? 1 : -1;
         });
 
         _.each(characterArray, function (userId) {
