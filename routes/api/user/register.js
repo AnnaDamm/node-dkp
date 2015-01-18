@@ -33,7 +33,7 @@ module.exports = function (mongo, config, settings) {
                     return waterfallDone(new Error("password,password2"));
                 }
                 // todo: check for better email regex
-                if (!checkExist("email") || !checkPattern("email", /^[a-zA-Z0-9+\-]+@[a-zA-Z0-9\-]+\.[a-z]{2,4}$/)) {
+                if (!checkExist("email") || !checkPattern("email", /^[a-zA-Z0-9+\-_]+@[a-zA-Z0-9\-]+\.[a-z]{2,4}$/)) {
                     return waterfallDone(new Error("email"));
                 }
                 if (!checkExist("charname") || !checkPattern("charname", /^[a-zA-Z0-9 \-]{3,}$/)) {
