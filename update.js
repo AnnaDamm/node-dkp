@@ -11,7 +11,7 @@ var sys          = require("sys"),
     crypto       = require("crypto"),
     fs           = require("fs"),
 
-    defaultSettings = require("./defaultSettings.json"),
+    defaultSettings = require("./lib/defaultSettings.json"),
     packageJson     = require("./package.json"),
 
     // init variables that rely on a config file

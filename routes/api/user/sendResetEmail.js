@@ -8,8 +8,7 @@ var mongojs = require("mongojs"),
     emailTemplates = require('email-templates'),
     nodemailer     = require('nodemailer'),
 
-    templatesDir = path.join(__dirname, "../../../", "emailTemplates"),
-    defaultSettings = require(path.join(__dirname, "../../../", "defaultSettings.json"));
+    templatesDir = path.join(__dirname, "../../../", "emailTemplates");
 
 module.exports = function (mongo, config, settings, translate) {
     var userCollection = mongo.collection('users');
@@ -51,9 +50,6 @@ module.exports = function (mongo, config, settings, translate) {
             },
             function getSmtpSettings(user, resetHash, waterfallDone) {
                 settings.get("smtp", function (error, smtp) {
-                    if (error) {
-                        smtp = defaultSettings.smtp;
-                    }
                     waterfallDone(null, user, resetHash, smtp);
                 });
             },
