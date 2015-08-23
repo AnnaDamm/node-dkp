@@ -23,7 +23,7 @@ module.exports = function (mongo) {
                 }
 
                 // todo: check for better email regex
-                if (!checkExist("email") || !checkPattern("email", /^[a-zA-Z0-9+\-]+@[a-zA-Z0-9\-]+\.[a-z]{2,4}$/)) {
+                if (!checkExist("email") || !checkPattern("email", /^[a-zA-Z0-9+\-_.%]+@[a-zA-Z0-9\-.]+\.[a-z]{2,6}$/)) {
                     return waterfallDone(new Error("email"));
                 }
 
